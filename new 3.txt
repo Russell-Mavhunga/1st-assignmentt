@@ -1,0 +1,20 @@
+$password= filter_input(INPUT_POST, 'password');
+$confirmpassword= filter_input(INPUT_POST, 'confirmpassword');
+
+$dbServername="localhost";
+$dbUsername="root";
+$dbPassword="";
+$dbName="my_database";
+
+$conn= mysqli_connect( $dbServername , $dbUsername ,$dbPassword,$dbName);
+
+$sql = "INSERT INTO  data (username,email,password,confirmpassword)
+ values ('$username','$email','$password','$confirmpassword')";
+
+if ($conn->query($sql)){
+   echo "New record is inserted successfully";
+}
+else{
+   echo"Error:".$sql."<br>".$conn->error;
+}
+?>
